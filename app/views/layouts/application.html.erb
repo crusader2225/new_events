@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NewEvents</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<h3 ><%= link_to "EVENTOR", new_event_path %></h3>
+<nav class= "navbar navbar-inverse">
+  <div class= "container-fluid">
+    <div class= "navbar-header">
+
+    </div>
+    <ul class="nav navbar-nav first_nav">
+      <li class="active"><%= link_to 'EVENTS', events_path %></li>
+      
+    </ul>
+    <ul class= "nav navbar-nav navbar-right second_nav">
+      <li><%= link_to 'Sign Up', new_user_path %></li>
+
+      <% if current_user %>
+      <li><%= link_to 'Log Out', logout_path %></li>
+      <li><%= link_to 'MY PROFILE', users_path %></li>
+      <% else %>
+      <li><%= link_to 'Log In', login_path %></li>
+      <% end %>
+    </ul>
+
+
+
+  </div>
+</nav>
+
+<body>
+
+  <%= yield %>
+</body>
+</html>
